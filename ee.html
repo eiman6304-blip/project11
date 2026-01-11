@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Project Tracking | SCRUM-17</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0052cc;
+            --bg: #f4f5f7;
+            --success: #36b37e;
+            --warning: #ffab00;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            padding: 25px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 { font-size: 22px; color: var(--primary); margin: 0; }
+
+        .task-badge {
+            background: #deebff;
+            color: #0747a6;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #fff;
+            border: 1px solid #dfe1e6;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-card h3 { margin: 0; font-size: 14px; color: #6b778c; }
+        .stat-card p { margin: 10px 0 0; font-size: 24px; font-weight: bold; color: var(--primary); }
+
+        .tracking-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tracking-table th {
+            background: #f9fafb;
+            text-align: right;
+            padding: 12px;
+            border-bottom: 2px solid #dfe1e6;
+        }
+
+        .tracking-table td {
+            padding: 15px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            width: 150px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--success);
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-left: 8px;
+            background: var(--success);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>تتبع المشروع في الوقت الفعلي</h1>
+        <span class="task-badge">SCRUM-17</span>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>إجمالي المهام</h3>
+            <p>24</p>
+        </div>
+        <div class="stat-card">
+            <h3>مكتملة</h3>
+            <p>18</p>
+        </div>
+        <div class="stat-card" style="border-right: 4px solid var(--warning);">
+            <h3>قيد التنفيذ</h3>
+            <p>6</p>
+        </div>
+    </div>
+
+    <table class="tracking-table">
+        <thead>
+            <tr>
+                <th>المهمة</th>
+                <th>المسؤول</th>
+                <th>الحالة</th>
+                <th>التقدم</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>تصميم واجهة HR Review</td>
+                <td>إيمان</td>
+                <td><span class="status-dot"></span>مباشر الآن</td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div></td>
+            </tr>
+            <tr>
+                <td>ربط قاعدة البيانات</td>
+                <td>أحمد</td>
+                <td>قيد الانتظار</td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width: 40%; background: var(--warning);"></div></div></td>
+            </tr>
+            <tr>
+                <td>اختبار الأمان</td>
+                <td>سارة</td>
+                <td>مكتمل</td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
